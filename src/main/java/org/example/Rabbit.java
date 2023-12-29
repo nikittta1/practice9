@@ -1,26 +1,36 @@
 package org.example;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Table(title = "RABBIT")
 public class Rabbit {
+
     public enum Color {
         BROWN, WHITE, GRAY;
     }
-    public Rabbit(String name, int age, String maxRunDistance, Color color) {
+    public Rabbit(String name, int age, String maxRunDistance, Color color, Date DateOfBirth) {
         this.name = name;
         this.age = age;
         this.maxRunDistance = maxRunDistance;
         this.color = color;
+        this.DateOfBirth = DateOfBirth;
     }
-    @Column
-    private final String name;
 
     @Column
-    private final int age;
+    private String name;
 
     @Column
-    private final String maxRunDistance;
+    private int age;
 
     @Column
-    private final Color color;
+    private String maxRunDistance;
+
+    @Column
+    private Color color;
+    @Column
+    private Date DateOfBirth;
+
+
 }
 

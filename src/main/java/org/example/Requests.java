@@ -17,6 +17,9 @@ public class Requests {
                     if (field.getType().getSimpleName().equals("int")) {
                         sql.append("INTEGER");
                     }
+                    else if (field.getType().getSimpleName().equals("Date")) {
+                        sql.append("DATE");
+                    }
                     else {
                         sql.append("TEXT");
                     }
@@ -32,15 +35,15 @@ public class Requests {
                 statement.execute(sqlDEL.toString());
                 statement.execute(sql.toString());
 
-                DatabaseMetaData metaData = connection.getMetaData();
-                ResultSet columns = metaData.getColumns(null, null, table.title(), null);
+//                DatabaseMetaData metaData = connection.getMetaData();
+//                ResultSet columns = metaData.getColumns(null, null, table.title(), null);
 
-                while (columns.next()) {
-                    String columnName = columns.getString("COLUMN_NAME");
-                    String columnType = columns.getString("TYPE_NAME");
-
-                    System.out.println("Колонка: " + columnName + ", Тип: " + columnType);
-                }
+//                while (columns.next()) {
+//                    String columnName = columns.getString("COLUMN_NAME");
+//                    String columnType = columns.getString("TYPE_NAME");
+//
+//                    System.out.println("Колонка: " + columnName + ", Тип: " + columnType);
+//                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -86,6 +89,9 @@ public class Requests {
             }
         }catch (NullPointerException e){
         }
+
     }
+
+
 }
 
